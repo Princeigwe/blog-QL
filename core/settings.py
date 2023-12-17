@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     "ariadne_django",
+
+    # local apps
+    "blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [
