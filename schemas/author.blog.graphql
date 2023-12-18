@@ -13,10 +13,34 @@ type AuthorResponse{
   author: Author
 }
 
+type Blog{
+  pk: Int
+  title: String
+  content: String
+  author: Author
+}
+
+input BlogInput{
+  authorUsername: String
+  title: String
+  content: String
+}
+
+type BlogResponse{
+  message: String
+  blog: Blog
+}
+
+type BlogsResponse{
+  message: String
+  blogs: [Blog]
+}
+
 type Mutation{
   createAuthor(input: AuthorInput): AuthorResponse
+  postBlog(input: BlogInput): BlogResponse
 }
 
 type Query{
-  hello: String
+  getBlogs: BlogsResponse
 }
