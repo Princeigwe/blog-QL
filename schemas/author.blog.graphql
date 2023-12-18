@@ -1,10 +1,10 @@
 type Author{
-  name: String
+  username: String
   age: Int
 }
 
 input AuthorInput{
-  name: String!
+  username: String!
   age: Int!
 }
 
@@ -15,4 +15,8 @@ type AuthorResponse{
 
 type Mutation{
   createAuthor(input: AuthorInput): AuthorResponse
+}
+
+type Query{
+  hello: String
 }
