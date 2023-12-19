@@ -21,3 +21,20 @@ def resolve_post_blog(*_, input:dict):
   except Author.DoesNotExist:
     raise Exception("Author does not exist")
 
+
+def resolve_get_blogs(*_):
+  blogs = Blog.objects.all()
+  return {
+    "message": "Blog-QL blogs",
+    "blogs": blogs
+  }
+
+def resolve_get_blog(*_, pk):
+  try:
+    blog = Blog.objects.get(id=pk)
+    return{
+      "message": f"Article {blog.id}",
+      "blog": blog
+    }
+  except Blog.DoesNotExist:
+    raise Exception("Blog does not exist")
